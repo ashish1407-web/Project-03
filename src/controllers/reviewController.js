@@ -107,7 +107,7 @@ const updateReview = async function (req, res) {
         }
 
         //finding book and review on which we have to update.
-        const searchBook = await bookModel.findById({ _id: bookParams }).select({ createdAt: 0, updatedAt: 0, __v: 0 })
+        const searchBook = await bookModel.findById({ _id:bookParams }).select({ createdAt: 0, updatedAt: 0, __v: 0 })
         if (!searchBook) {
             return res.status(404).send({ status: false, message: `Book does not exist by this ${bookParams}. ` })
         }

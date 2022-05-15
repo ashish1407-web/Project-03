@@ -10,7 +10,6 @@ const bookCreation = async function (req, res) {
         let requestBody = req.body;
         const { title, excerpt, userId, ISBN, category, subcategory, releasedAt } = requestBody
 
-
          //Validation starts
          if (!validator.isValidRequestBody(requestBody)) { //for empty req body.
             return res.status(400).send({ status: false, message: 'Invalid request parameters. Please provide book details' })
@@ -26,7 +25,7 @@ const bookCreation = async function (req, res) {
 
        
 
-        if (!validator.isValid(title)) {
+        if (!validator.isValid(title.trim)) {
             return res.status(400).send({ status: false, message: "Title must be present" })
         };
         if (!validator.isValid(excerpt)) {
