@@ -85,9 +85,9 @@ const userCreation = async function (req, res) {
             return res.status(400).send({ status: false, message: "Invalid Email id." })
 
         //setting password's mandatory length in between 8 to 20 characters.
-        if (!(password.length >= 8 && password.length <= 15)) {
+   /*     if (!(password.length >= 8 && password.length <= 15)) {
             return res.status(400).send({ status: false, message: "Password criteria not fulfilled." })
-        }
+        }*/
 
         //saving user data into DB.
         const userData = await userModel.create(requestBody)

@@ -17,7 +17,7 @@ const bookCreation = async function (req, res) {
 
         //Authentication
         if (userId != req.userId) {
-            return res.status(403).send({
+            return res.status(401).send({
                 status: false,
                 message: "Unauthorized access ! User's credentials doesn't match."
             })
@@ -205,7 +205,7 @@ const updateBookDetails = async function (req, res) {
 
         //validation starts.
         if (!validator.isValidObjectId(userIdFromToken)) {
-            return res.status(402).send({ status: false, message: "Unauthorized access !" })
+            return res.status(400).send({ status: false, message: "Unauthorized access !" })
         }
         if (!validator.isValidObjectId(params)) {
             return res.status(400).send({ status: false, message: "Invalid bookId." })
